@@ -4,11 +4,11 @@ var router = express.Router();
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   if (isNaN(req.query.number)) {
-    res.json(req.query.number + " is not a number!");
+    res.json(req.query.number + " is NaN.");
 
   } else {
     res.json({
-      Number: req.query.number,
+      Number: parseInt(req.query.number, 10),
       Primality: primality(req.query.number)
     });
   }
