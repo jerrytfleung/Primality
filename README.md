@@ -1,4 +1,4 @@
-# Primality
+# Primality [![Build Status](https://travis-ci.com/jerrytfleung/Primality.svg?branch=master)](https://travis-ci.com/jerrytfleung/Primality)
 
 This is a practice for Node.js, Express, Docker
 
