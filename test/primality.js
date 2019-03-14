@@ -96,6 +96,21 @@ describe('/primality?number=', () => {
       done();
     });
   });
+  it('2147483647, it should be a prime number', (done) => {
+    var number = 2147483647
+    chai.request(server)
+    .get('/primality?number=' + number)
+    .end((err, res) => {
+      res.should.have.status(200);
+      should.exist(res.body);
+      const expected = {
+        Number: number,
+        Primality: true
+      }
+      res.body.should.be.eql(expected);
+      done();
+    });
+  });
   it('abc, it should be NaN', (done) => {
     var number = 'abc'
     chai.request(server)
