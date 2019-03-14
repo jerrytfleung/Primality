@@ -65,3 +65,9 @@ typings/
 
 # No markdown except README.md
 *.md
+
+# Other
+test/
+.dockerignore
+.gitignore
+.travis.yml
