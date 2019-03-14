@@ -6,7 +6,7 @@ node_js:
   - '11'
 after_success:
   - docker build -t jerrytfleung/primality .
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - docker push jerrytfleung/primality
 env:
   global:
