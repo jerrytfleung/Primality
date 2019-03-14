@@ -10,7 +10,7 @@ after_success:
 after_script:
   - docker images
 before_deploy:
-  - echo "$REGISTRY_PASS" | docker login --username "$REGISTRY_USER" --password-stdin
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
 deploy:
   provider: script
   script: docker push jerrytfleung/primality
