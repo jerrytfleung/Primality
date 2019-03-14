@@ -6,7 +6,17 @@ language: node_js
 node_js:
   - '11'
 script:
-  - docker build -t primality .
-  - docker run primality
+  - docker build -t jerrytfleung/primality .
 after script:
   - docker images
+before_deploy:
+  - docker login -u "$REGISTRY_USER" -p "$REGISTRY_PASS"
+deploy:
+  provider: script
+  script: docker push jerrytfleung/primality
+  on:
+    branch: master
+env:
+  global:
+    - secure: vhOuo6ZeMwgJ2IGK68nHV4BpC/bZr9xKnvfsgYEB4dxjOk87blMb3zyknZwAT0Q7Xp6heqADbsTsc5+QAmrBqwwTb4DMc4+8t5IAKDNLzWWN0ahzeGlc6ke9ZZ0RZji4HeN5ihzEtUHVLRB1Q7c+DJQH49YfyFyjonk38SxpH5g2xiflTTyZNEksSWjOWNQG67mqJ3wlw5D8IoL7b80K42rEUHxXEII3rAW9/mePeKtHZGiscf72TiIhRkbDqj4JbdPBvu2S7PKw9we5Kw2Ou9PhnhzDfBQAh9FNThvemv7c5IKCaU2yBzsZHAGpgCDYvWvA0NxLaB/G9SEGorrFXLp2gnIURXV8MhopddGRJmTy5LL4JcMPJz9hw/q+GGPDjJ4DP6O2t3bYgnQ/u+QbywtdzTFdTj0KkbNN8nOVziXfyULjHVraDjzbUV1cIoj2ov8S2he20rITvRTt3NJXcUn3dPBxNg38WwWs7chpKrjqTMlU3t5qttfCcusnk9AbHLWLV9KAnjoi8LfEiG8AoJ8HBiT+ndoJrJLkcRRpARBZi0bEawpq5tlP69J6SKD5v99CKmKLPk6xeIzyhvPZ/yMVKwAsY2qUYCD0c/s+37l19jklVKFM0gkETUtTpvqL9vnz6tR7RGN/gGWAC4Cf1f9UB1wM995LoxBmvjh46mY=
+    - secure: 4DxIlknbQGjWseFpT/TJS3rSSQC+nfY9cwFxxZJgjEKkiGNd5UX8Xccag0p8DRdqjZs0W4eoe6RFAJwATTglQWrulmeiJ0I+QtSF8SofQMnOzLSowoif2L6+o6DuNKCR2waewrNVNm0EWp+R1W//zw96CsZNtWddjWRn8CuFPyvjrqnvpYiZHF7ixOUmoI7gIJ1FNxhxQ/aF1wcLRMxR18ERk/Ikyv6hO602/vFtqt6sQeSL93YXWxQ6UWxQHongAPj7Vl40xa+NM8+CllMiNr+4d/GuI+xYtxYT1MuanZM8kRv+vW5hLg8S2aRNt/cm89ivG2bpnSi1/+od7U9eXebF4266mM3UwgCkNc287WwML3S3ujXvKg13PIWB9nsbJKf1f7QX0ataBwn/AepkenljhrIbTXFKeUgtIScN8FaKE+gkNrdzFef9mNmkRN7RezaqesOTjayVd/cexRAO3PimIhUM5dcawhRxNluaUSCDvqMN1JtD/f44oBN8SSpKGWHGHJi93pjQV8Bx1KCKT3v1bRJJ0q1k2fQgkZ+UoAMW7k/lK6U9QIlpOIIiw4Qo1hyAOJTrzDTuLMUPNtZlUObisDqmDLm7X3l/FK+VhmCuZCEamxwkgW1XF0S6qowWTH7GagEy30XFxqqAD+RLOGh8htU3P+6WT+2q8OFvU3A=
