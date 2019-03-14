@@ -11,7 +11,6 @@ after_script:
 before_deploy:
   - echo asdf1234 | docker login --username jerrytfleung --password-stdin
 deploy:
-  provider: after_script
   script: docker push jerrytfleung/primality
   on:
     branch: master
