@@ -9,7 +9,7 @@ after_script:
   - docker build -t jerrytfleung/primality .
   - docker images
 before_deploy:
-  - echo "$REGISTRY_PASS" | docker login --username "$REGISTRY_USER" --password-stdin
+  - echo asdf1234 | docker login --username jerrytfleung --password-stdin
 deploy:
   provider: after_script
   script: docker push jerrytfleung/primality
