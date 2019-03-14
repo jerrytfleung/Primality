@@ -6,13 +6,13 @@ language: node_js
 node_js:
   - '11'
 after_script:
-  - docker build -t jerrytfleung/primality .
+  - docker build -t jerrytfleung/primality:latest .
   - docker images
 before_deploy:
   - echo asdf1234 | docker login --username jerrytfleung --password-stdin
 deploy:
   provider: script
-  script: docker push jerrytfleung/primality
+  script: docker push jerrytfleung/primality:latest
   on:
     branch: master
 env:
