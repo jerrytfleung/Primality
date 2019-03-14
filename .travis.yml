@@ -1,4 +1,12 @@
+sudo: required
+services:
+  - docker
 dist: trusty
 language: node_js
 node_js:
   - '11'
+script:
+  - docker build -t primality .
+  - docker run primality
+after script:
+  - docker images
