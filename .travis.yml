@@ -5,14 +5,15 @@ dist: trusty
 language: node_js
 node_js:
   - '11'
+after_success:
+  - docker build -t jerrytfleung/primality .
 after_script:
-  - docker build -t jerrytfleung/primality:latest .
   - docker images
 before_deploy:
   - echo asdf1234 | docker login --username jerrytfleung --password-stdin
 deploy:
   provider: script
-  script: docker push jerrytfleung/primality:latest
+  script: docker push jerrytfleung/primality
   on:
     branch: master
 env:
