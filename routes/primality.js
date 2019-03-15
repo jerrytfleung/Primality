@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
 router.get('/', function (req, res, next) {
   if (isNaN(req.query.number)) {
     res.json(req.query.number + " is NaN.");
