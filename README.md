@@ -15,7 +15,7 @@ A complete TDD setup of Node.js + Express server development
 6. Auto deployment of docker image to docker hub
 7. Auto deployment of server to Heroku
 
-## How it works?
+## How does it work?
 
 This microservice server reads the number in the request query and does a primality check of that number. It responses a json indicating the number is a prime or not.
 
