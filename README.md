@@ -22,7 +22,7 @@ This microservice server reads the number in the request query and does a primal
 ## Deployment
 
 ### In [Hekuro](https://www.heroku.com/) environment 
-1. Go to https://nodejs-primality.herokuapp.com/primality?number=197 in your browser or by other means
+1. Go to https://nodejs-primality.herokuapp.com/primality/197 in your browser or by other means
 2. The http response is
   {
       "Number": "197",
@@ -32,7 +32,7 @@ This microservice server reads the number in the request query and does a primal
 ### In [Docker](https://www.docker.com/) environment
 1. Install docker in your box
 2. Execute "Docker run -p 3000:3000 --name primality jerrytfleung/primality"
-3. Go to http://localhost:3000/primality?number=197 in your browser or by other means
+3. Go to http://localhost:3000/primality/197 in your browser or by other means
 4. The http response is
   {
       "Number": "197",
