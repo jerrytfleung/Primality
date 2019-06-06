@@ -10,9 +10,13 @@ after_success:
 after_script:
   - docker images
 before_deploy:
-  - echo "$REGISTRY_PASS" | docker login --username "$REGISTRY_USER" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 deploy:
   provider: script
   script: docker push jerrytfleung/primality
   on:
     branch: master
+env:
+  matrix:
+    - secure: WT/oGqfRsBlu8hV8DsUWyzAeCROkFPNgkGHfauEyXnXJS4mEBcR9lJhV/U+rDPBFOHfHXyzGRZVE2g/Ovz4Z444j72iZAgFEJ6Nl7oK40VILsqUajAVjJ9Aevf2JZQF0odVRzEx3Nn6vtZ5+4B00MXh1a1qlmsoHiZ42fVocWIlLMzWvX/svB3N4hyK1fwNnkeTSD81nrumzt1Hh7QtntA8nDOSqV9RZueiGmW+k3LbHrzgDnwzvTW0f2zWW5O2FGbCImvPk5tfkoDmNuQVB3NEjQ34V4aGWRIDbChby0L5Pe85bJhA643+P2jBA/+bHFwx6rBkD5YcMqGO/3D9wYdrRBm1QplCLnqAevqHUg7sTlm6I+b3hNzrOfpilWLkO6rnIHZZuAGru+O0Zwv3vY0Txoy2M/yzVbDof0rCDrVsqrigZrWnI6wDSF8WMrWN7uKHvSm8WddAER0+JnUroznAKIryGyAVHlEE5k2UlOL7rsl2ciXnNulz/lmsGvQGbMd5CxFMiibTdSd/GsqRq2qEM3ASpmPyzYSmk+o57vJueqnyRhiwlrJ31q7hWapR/MXsusUHEt8iNqGpu8apDBEkXvG5KdOwExdNmvpiAj+f3aHcZpdKg2y9IkW97C6LJeFMeJRzWvGqZwicjt+jDO55AnxaGJOHJ2CB/0Idwi24=
+    - secure: Em/1KCYaH+HickXWGF0YxeVx7x4D27VZ8dGIMcgLqcwqGxnGiu2eKKUfXwISWrJRlJ7cGy2yQqSCRArg485hLHjpKeXKA6Cilst5rqimq/vQwgXfBYs02bcNGGbcYZ6mbD8WdCfAonh1uVe1YZiBViMGe6Vo68+2k+W87rpKVZo7mCSYixdJbg0ktzMjbKUQJ06js+EMi6wEtqY/vY8F9aiJ3l1n3IViOhGbEZUCIirtD7SVS30nTL/jW7IT/m3lZU6ZtQ4SD7ja4OKObUtBudE7h1temCBfDvT3nfPw88ZW1CczwEhlcR9mQLkl9rCqhHEAeXfQWFAe4Lc/rpIcfQfPxJzj+r+CA9ajyEf1XxwDrxcS47MWHlnPQZtubCo2H9AQEj1lGuFI77e1U2TOkTVo3ZdXIv8snf9qOU7wblYn0oeh5lDrCj7X4nPuoZtOxQHmZ62gF2r61SFKvJ4FI9m4GJvZU9jLXhDVKIdyRM39hdfLsMHDYg5PsT+KFcwjDxhnAC0l+61UfGN6uIVrWY51JWN6FFinvZ+jFTDbVErOIa4skBSm01/GOmwSAUaJ7kfZ5WpFrvG3UZ0s64W3itxC++FbbLIGH8pXNFTceDJpTS5/zL4XbpjBrOcmaoEZm3NoGt6O7ws8Vq7V9jcnB09X99Wc60lsBLoGMzK9RV8=
