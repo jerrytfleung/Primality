@@ -15,21 +15,16 @@ router.get('/:number', function (req, res) {
 });
 
 function primality(num) {
-  if (num <= 1) {
+  if (num < 2) {
     return false;
   }
-  if (num === 2) {
-    return true;
-  }
-  let i = 2;
-  while (i * i < num) {
-    if (num % i === 0) {
+  let sqrt = Math.sqrt(num);
+  for (let i = 2; i <= sqrt; i++) {
+    if (num % i == 0) {
       return false;
     }
-    i++;
   }
-  return num % i !== 0;
-
+  return true;
 }
 
 module.exports = router;
